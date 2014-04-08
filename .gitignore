@@ -1,0 +1,25 @@
+# CRAFT STORAGE STUFF
+# It's probably safe to ignore the following in the storage folders.
+# The rest of the items in the storage folder are up to us...
+# ------------------------------------------------------------
+core/storage/runtime/*
+core/storage/backups/*
+
+
+# MISC FILES
+# ------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+nbproject
+*.sublime-workspace
+*.sublime-project
+_notes
+dwsync.xml
+logs/*
+.sass-cache
+node_modules
