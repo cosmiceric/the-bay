@@ -71,3 +71,25 @@
   -o-transform: $values
   -ms-transform: $values
   transform: $values
+
+// ------------------------------------------- //
+//
+// Min Width
+//
+// min-width media query mixin
+//
+// ------------------------------------------- //
+=min-width($size)
+  @media only screen and (min-width: ( $size * 1px ) )
+    @content
+
+
+// ------------------------------------------- //
+//
+// Opacity
+//
+// ------------------------------------------- //
+=opacity($value)
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$value})"
+  filter: alpha(opacity=$value)
+  opacity: ( $value / 100 )
