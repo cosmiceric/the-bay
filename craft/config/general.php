@@ -25,10 +25,10 @@ return array(
   ),
 
   // Production ENV
-  'http://thebay.io' => array(
+  'thebay.io' => array(
     'devMode' => false,
     'environmentVariables' => array(
-      'siteUrl'        => '',
+      'siteUrl'        => 'http://thebay.io/',
       'fileSystemPath' => ''
     )
   )
