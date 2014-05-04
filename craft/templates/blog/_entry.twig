@@ -1,0 +1,56 @@
+
+{#
+ # News entry template
+ # -------------------
+ #
+ # This template gets loaded whenever a News entry’s URL is
+ # requested. That’s because the News section’s Template setting is
+ # set to “news/_entry”, the path to this template.
+ #
+ # When this template is loaded, it will already have an ‘entry’
+ # variable, set to the requested News entry.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://buildwithcraft.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+
+{% block content %}
+	<article>
+		<h1>{{ entry.title }}</h1>
+		<p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
+		
+		{% for block in entry.articleBody %}
+
+    {% if block.type == "heading" %}
+
+        <{{ block.headingLevel }}>{{ block.headingTitle }}</{{ block.headingLevel }}>
+        
+    {% elseif block.type == "paragraph" %}
+
+        <p>{{ block.paragraph | markdown }}</p>
+
+    {% elseif block.type == "image" %}
+
+        {% set imageSource = block.imageSource.first() %}
+        {% if imageSource %}
+            <img src="{{ imageSource.getUrl() }}" width="{{ imageSource.getWidth() }}" height="{{ imageSource.getHeight() }}" alt="{{ block.caption }}">
+        {% endif %}
+
+        {% set caption = block.caption %}
+        {% if caption %}
+					<div class="caption">{{ caption }}
+        {% endif %}
+
+    {% elseif block.type == "pullquote" %}
+
+        <blockquote>
+            <p>{{ block.pullquoteTitle }}</p>
+        </blockquote>
+
+    {% endif %}
+
+{% endfor %}
+	</article>
+{% endblock %}
