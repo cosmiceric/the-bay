@@ -1,0 +1,13 @@
+$max-width: 600px;
+
+body {
+	font-size: 100%;
+	font-size: 16px;
+	font-family: "lato", helvetica, sans-seriff;
+}
+
+p {
+	max-width: $max-width;
+	font-size: 1.25em;
+	margin: 2em auto;
+}
