@@ -19,7 +19,7 @@
 </head>
 
 {% if mainBackground is not defined %}
-	{% set latestImg = craft.entries.section('blog').first.featuredImage.first.url %}
+	{% set latestImg = craft.entries.section('articles').first.featuredImage.first.url %}
 	{% set mainBackground = latestImg %}
 {% endif %}
 
@@ -30,8 +30,9 @@
 
 			<nav>
 				<ul>
-					<li><a href="{{ url('blog') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>Articles</a></li>
-					<li><a href="{{ url('about') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>About</a></li>
+					<li><a href="{{ url('articles') }}" {% if craft.request.firstSegment == 'articles' %}class="active"{% endif %}>Articles</a></li>
+					<li><a href="{{ url('topics') }}" {% if craft.request.firstSegment == 'topics' %}class="active"{% endif %}>Topics</a></li>
+					<li><a href="{{ url('about') }}" {% if craft.request.firstSegment == 'about' %}class="active"{% endif %}>About</a></li>
 				</ul>
 			</nav>
 		</header>

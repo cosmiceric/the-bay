@@ -1,0 +1,48 @@
+{#
+ # About single template
+ #}
+
+{% extends "_layout" %}
+
+{# Set the Title #}
+{% set title = "About" %}
+
+{# Set the featured background image to the _layout template #}
+
+{% set mainBackground = entry.featuredImage.first.url %}
+
+{% block content %}
+		
+	{% for block in entry.articleBody %}
+
+      {% if block.type == "heading" %}
+
+          <{{ block.headingLevel }}>{{ block.headingTitle }}</{{ block.headingLevel }}>
+
+      {% elseif block.type == "paragraph" %}
+
+          {{ block.paragraph}}
+
+      {% elseif block.type == "image" %}
+
+          {% set imageSource = block.imageSource.first() %}
+          {% if imageSource %}
+              <img src="{{ imageSource.getUrl() }}" width="{{ imageSource.getWidth() }}" height="{{ imageSource.getHeight() }}" alt="{{ block.caption }}" class="{{ block.alignment }}">
+          {% endif %}
+
+          {% set caption = block.caption %}
+          {% if caption %}
+  					<div class="caption">{{ caption }}</div>
+          {% endif %}
+
+      {% elseif block.type == "pullquote" %}
+
+          <blockquote>
+              <p>{{ block.pullquoteTitle }}</p>
+          </blockquote>
+
+      {% endif %}
+
+      {% endfor %}
+
+{% endblock %}

@@ -23,3 +23,5 @@ dwsync.xml
 logs/*
 .sass-cache
 node_modules
+craft/app
+craft/storage

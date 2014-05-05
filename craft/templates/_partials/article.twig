@@ -1,0 +1,57 @@
+	{% cache %}
+    <article>
+  		<h1>{{ entry.title }}</h1>
+  		<p>Posted on {{ entry.postDate.format('F d, Y') }} by {{ entry.author.firstName }}</p>
+  		
+  		{% for block in entry.articleBody %}
+
+      {% if block.type == "heading" %}
+
+          <{{ block.headingLevel }}>{{ block.headingTitle }}</{{ block.headingLevel }}>
+
+      {% elseif block.type == "paragraph" %}
+
+          {{ block.paragraph}}
+
+      {% elseif block.type == "image" %}
+
+          {% set imageSource = block.imageSource.first() %}
+          {% if imageSource %}
+              <img src="{{ imageSource.getUrl() }}" width="{{ imageSource.getWidth() }}" height="{{ imageSource.getHeight() }}" alt="{{ block.caption }}" class="{{ block.alignment }}">
+          {% endif %}
+
+          {% set caption = block.caption %}
+          {% if caption %}
+  					<div class="caption">{{ caption }}</div>
+          {% endif %}
+
+      {% elseif block.type == "pullquote" %}
+
+          <blockquote>
+              <p>{{ block.pullquoteTitle }}</p>
+          </blockquote>
+
+      {% endif %}
+
+      {% endfor %}
+    </article>
+  {% endcache %}
+
+	{# Disqus Embed #}
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'thebay'; // required: replace example with your forum shortname
+        var disqus_identifier = '{{ entry.section }}-{{ entry.id }}';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>

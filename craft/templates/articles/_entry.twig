@@ -1,0 +1,16 @@
+{#
+ # Blog entry template
+ #}
+
+{% extends "_layout" %}
+
+{% set title = entry.title %}
+
+{# Set the featured background image to the _layout template #}
+{% set mainBackground = entry.featuredImage.first.url %}
+
+{% block content %}
+
+  {% include '_partials/article.twig' %}
+
+{% endblock %}
