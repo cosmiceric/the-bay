@@ -1,0 +1,8 @@
+@mixin maxwidth() {
+  margin: 0 auto;
+  max-width: $max-width;
+}
+
+@mixin futura() {
+  font-family: "futura", helvetica, sans-serrif;
+}

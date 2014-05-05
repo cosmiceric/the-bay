@@ -1,9 +1,80 @@
 body {
   font-size: 100%;
   font-size: 16px;
-  font-family: "lato", helvetica, sans-seriff; }
+  font-family: "lato", helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #221f1f; }
+
+a {
+  font-weight: bold;
+  color: #221f1f; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+#container {
+  height: 100%;
+  position: absolute;
+  width: 100%; }
+
+header {
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 2em;
+  height: 80%; }
+  header:after {
+    content: "";
+    clear: both; }
+  header h1 {
+    margin: 0;
+    width: 100px;
+    float: left; }
+    header h1 a {
+      margin: 0;
+      text-indent: -10000px;
+      display: block;
+      background: url("img/the-bay-logo.png") no-repeat;
+      background-size: 100px 100px;
+      height: 100px;
+      width: 100px; }
+
+nav {
+  display: inline-block;
+  float: right;
+  background: #221f1f;
+  margin-top: 30px;
+  font-size: .75em;
+  -webkit-border-radius: 3px;
+  border-radius: 3px; }
+  nav ul {
+    list-style-type: none;
+    float: right;
+    margin: 0;
+    padding: 1em; }
+  nav li {
+    margin: 0 2em 0 2em;
+    font-family: "futura", helvetica, sans-serrif;
+    text-transform: uppercase;
+    display: inline-block; }
+    nav li a {
+      text-decoration: none;
+      color: white; }
 
 p {
-  max-width: 600px;
+  margin: 0 auto;
+  max-width: 640px;
   font-size: 1.25em;
-  margin: 2em auto; }
+  margin: 2em auto;
+  line-height: 1.5em; }
+
+h1 {
+  margin: 0 auto;
+  max-width: 640px;
+  font-size: 2em;
+  font-weight: 200;
+  font-family: futura;
+  text-transform: uppercase;
+  margin-top: 2em; }

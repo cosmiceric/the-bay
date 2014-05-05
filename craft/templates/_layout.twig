@@ -18,14 +18,20 @@
 	<link rel="stylesheet" href="{{ siteUrl }}/assets/styles.css" type="text/css">
 </head>
 
+{% if mainBackground is not defined %}
+	{% set latestImg = craft.entries.section('blog').first.featuredImage.first.url %}
+	{% set mainBackground = latestImg %}
+{% endif %}
+
 <body>
 	<div id="container">
-		<header id="header">
+		<header id="header" style="background-image: url('{{ mainBackground }}');">
 			<h1><a href="{{ siteUrl }}">{{ siteName }}</a></h1>
 
 			<nav>
 				<ul>
-					<li><a href="{{ url('news') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>News</a></li>
+					<li><a href="{{ url('blog') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>Articles</a></li>
+					<li><a href="{{ url('about') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>About</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -42,6 +48,6 @@
 		</footer>
 	</div>
 	<script type="text/javascript" src="//use.typekit.net/uxf7xly.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </body>
 </html>

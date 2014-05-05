@@ -5,6 +5,9 @@
 
 {% extends "_layout" %}
 
+{% set mainBackground = entry.featuredImage.first.url %}
+
+
 {% block content %}
 	{% cache %}
     <article>
