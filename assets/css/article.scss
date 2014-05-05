@@ -1,0 +1,13 @@
+img {
+	&.inline {
+		@include maxwidth;
+	}
+
+	&.fullwidth {
+		width: 100%;
+	}
+}
+
+#disqus_thread {
+	@include maxwidth;
+}
